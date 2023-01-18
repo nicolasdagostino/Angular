@@ -1,0 +1,107 @@
+<div class="container">
+  <h1>Pipes</h1>
+  <hr>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Propiedad</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{nombre}}</th>
+        <td>uppercase</td>
+        <td>{{nombre | uppercase}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{nombre}}</th>
+        <td>lowercase</td>
+        <td>{{nombre | lowercase}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{nombre}}</th>
+        <td>slice</td>
+        <td>{{nombre | slice:3}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{nombre}}</th>
+        <td>slice v2</td>
+        <td>{{nombre | slice:0:3}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{nombre}}</th>
+        <td>slice v3</td>
+        <td>{{miArray | slice:1:5}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{nombre}}</th>
+        <td>slice v4</td>
+        <td>{{<span *ngFor="let item of miArray | slice:5:9">{{item}}</span>}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{PI}}</th>
+        <td>Number</td>
+        <td>{{PI | number}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{PI}}</th>
+        <td>Number</td>
+        <td>{{PI | number:'2.0-0'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{PI}}</th>
+        <td>Number</td>
+        <td>{{PI | number:'2.5-8'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{importe}}</th>
+        <td>Number</td>
+        <td>{{importe | number:'1.2-2'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{porcentaje}}</th>
+        <td>percent</td>
+        <td>{{porcentaje | percent:'1.2-2'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{sueldo}}</th>
+        <td>currency</td>
+        <td>{{sueldo | currency}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{sueldo}}</th>
+        <td>currency</td>
+        <td>{{sueldo | currency:'EUR'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{sueldo}}</th>
+        <td>currency - ISO</td>
+        <td>{{sueldo | currency:'JPY'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{sueldo}}</th>
+        <td>currency - ISO</td>
+        <td>{{sueldo | currency:'EUR':false:'5.2-2'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{info}}</th>
+        <td>json</td>
+        <td>{{info | json}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{fecha}}</th>
+        <td>json</td>
+        <td>{{fecha | date:'medium'}}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{password}}</th>
+        <button class="btn btn-outline-primary"(click)="visible = !visible">Ocultar/mostrar
+
+        </button>
+        <td>{{password | ofuscador:visible}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

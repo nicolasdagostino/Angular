@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col">
+    <h1>*ngIf</h1>
+    <hr>
+    <div *ngIf="mostrar" class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{frase.autor}}</h5>
+        <p class="card-text">{{mensaje}}</p>
+      </div>
+    </div>
+    <button (click)="mostrarOcultar()" class="btn btn-outline-danger">
+      <span *ngIf="!mostrar">Mostrar</span>
+      <span *ngIf="mostrar">Ocultar</span>
+    </button>
+  </div>
+
+  <div class="col">
+    <h1>*ngFor</h1>
+    <hr>
+    <ul class="list-group">
+      <li *ngFor="let color of colores; let i = index" class="list-group-item">{{i}}-{{color}}</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item">Porta ac consectetur ac</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+  </div>
+
+  <hr>
+  <div class="row mt-5">
+    <div class="col">
+      <h2>Directiva ngStyle</h2>
+      <hr>
+      <p [ngStyle]="{'font-size': tam+'px','color':'red'}">Probando la directiva ngStyle opcion1</p>
+      <p [style.fontSize]="tam + 'px'">Probando la directiva ngStyle opcion2</p>
+      <p [style.fontSize.px]="tam">Probando la directiva ngStyle opcion3</p>
+      <button (click)="incrementarFuente()" class="btn btn-outline-primary"><i class="fa-solid fa-bug"></i></button>
+      <!--al puslar el boton + se incrementará el tamaño de fuente hasta un maximo de 40-->
+      <!--al puslar el boton - se decrementará el tamaño de fuente hasta un minimo de 5-->
+      <button (click)="decrementarFuente()" class="btn btn-outline-primary"><i
+          class="fa-solid fa-keyboard"></i></button>
+
+    </div>
+    <div class="col">
+      <h2>Directiva ngClass</h2>
+      <hr>
+      <div [ngClass]="{'alert': true, 'alert-danger': true}" role="alert">
+        A simple danger alert—check it out!
+      </div>
+      <div class="alert" [ngClass]="alerta" role="alert">
+        A simple danger alert—check it out!
+      </div>
+      <button (click)="alerta='alert-info'" class="btn btn-outline-primary">Info</button>
+      &nbsp;
+      <button (click)="alerta='alert-primary'" class="btn btn-outline-primary">Primary</button>
+      <button (click)="alerta='alert-alert-dark'" class="btn btn-outline-primary">Dark</button>
+
+    </div>
+    <div class="col">
+      <h2>Procesos asincronos</h2>
+<hr>
+<button class="btn btn-outline-primary" (click)="guardarCambios()">
+  <i [ngClass] = "{'fa-solid': true, 'fa-save': loading, 'fa-refresh fa-spin': !loading}"></i><span *ngIf="loading">Guardar cambios</span>
+  <span *ngIf="!loading">Guardando...</span>
+</button>
+
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <h2>Directiva ngSwitch</h2>
+      <hr>
+      <div [ngSwitch]="tipo">
+        <p *ngSwitchCase="'alerta'">Mensaje de alerta</p>
+        <p *ngSwitchCase="'peligro'">Mensaje de peligro</p>
+        <p *ngSwitchDefault>No hay mensaje</p>
+
+
+      </div>
+    </div>
+  </div>
